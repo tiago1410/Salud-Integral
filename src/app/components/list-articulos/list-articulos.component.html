@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="tabla">
+  <div>
+    <mat-form-field class="float-left">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="filter($event)" placeholder="Buscar" autocomplete="off">
+    </mat-form-field>
+    
+    <button class="btn btn-primary my-2 my-sm-0 m-2 text float-right" type="button" (click)="generarPDF()" >Generar PDF</button>
+    <button class="btn btn-primary my-2 my-sm-0 m-2 text float-right" type="button" routerLink="/add">Agregar</button>
+    <div id="pdfContent">
+    <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8" matSort>
+        
+      
+        
+        <ng-container matColumnDef="nombreArticulo" >
+          <th class="text bg-primary text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Articulo </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombreArticulo}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="precio">
+          <th class="text bg-primary text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+          <td mat-cell *matCellDef="let element"> {{element.precio | currency:'':'symbol' : '0.0-0'}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="cantidad">
+          <th class="text bg-primary text-white" mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fechaIngreso">
+          <th class="text bg-primary text-white" *matHeaderCellDef mat-sort-header> Fecha Ingreso </th>
+          <td mat-cell *matCellDef="let element"> {{element.fechaIngreso | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+    
+    
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="acciones">
+          <th class="bg-primary text-white" mat-header-cell *matHeaderCellDef></th>
+          <td  mat-cell *matCellDef="let element; let i=index" style="text-align: center;">
+            <i class="pointer fa-solid fa-pen-to-square fa-bounce" routerLink="add/{{i}}" style="margin-right: 10px; color: aqua;"></i>
+            <i (click)="eliminarArticulo(i)" class="pointer fa-solid fa-trash-can fa-flip " style="margin-left: 10px; color: brown;"></i>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+      
+  </div>
+  
+</div>
+
+  

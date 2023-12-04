@@ -1,0 +1,64 @@
+<div class="edit">
+    <app-navbar></app-navbar>
+    <div class="row">
+        <div class=" col-lg-4">
+            <form [formGroup]="myForm" autocomplete="off">
+                <div>
+                    <h2 class="text-center m-2 mb-4">{{accion}} articulo</h2>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="example-container">
+                        <mat-label>Nombre del articulo</mat-label>
+                        <input matInput formControlName="nombreArticulo">
+                    </mat-form-field>
+                    <div *ngIf="myForm.get('nombreArticulo')?.hasError('required') && myForm.get('nombreArticulo')?.touched" style="margin-top: -20px;">
+                        <span class="msg"> Este campo es <strong>Requerido!!</strong></span>
+                    </div>
+                    <div *ngIf="myForm.get('nombreArticulo')?.hasError('maxlength') && myForm.get('nombreArticulo')?.touched" style="margin-top: -20px;">
+                        <span class="msg"> Este campo debe de tener como maximo <strong>15 Caracteres!!</strong></span>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="example-container">
+                        <mat-label>Precio</mat-label>
+                        <input type="number" matInput formControlName="precio">
+                    </mat-form-field>
+
+                    <div *ngIf="myForm.get('precio')?.hasError('required') && myForm.get('precio')?.touched" style="margin-top: -20px;">
+                        <span class="msg"> Este campo es <strong>Requerido!!</strong></span>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="example-container">
+                        <mat-label>Cantidad</mat-label>
+                        <input type="number" matInput formControlName="cantidad">
+                    </mat-form-field>
+                    <div *ngIf="myForm.get('cantidad')?.hasError('required') && myForm.get('cantidad')?.touched" style="margin-top: -20px;">
+                        <span class="msg"> Este campo es <strong>Requerido!!</strong></span>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <mat-form-field class="example-container">
+                        <mat-label>Fecha Ingreso</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="fechaIngreso">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <div *ngIf="myForm.get('fechaIngreso')?.hasError('required') && myForm.get('fechaIngreso')?.touched" style="margin-top: -20px;">
+                        <span class="msg"> Este campo es <strong>Requerido!!</strong></span>
+                    </div>
+                </div>   
+                <br>
+                <div class="col-lg-12 text-center">
+                    <button class="btn btn-secondary my-2 my-sm-0 m-2 text" type="button" routerLink="/list-articulos">Cancelar</button>
+                    <button class="btn btn-primary my-2 my-sm-0 m-2 text" [disabled]="myForm.invalid" type="button" (click)="guardarArticulo()" >Aceptar</button>
+                </div>
+            </form>
+                  
+    </div>    
+    <div class="col-lg-4 offset-2 mt-5">
+        <img src="https://media2.giphy.com/media/3o72EXEfAoFRXnzDvG/200w.webp?cid=ecf05e47upcm2pn76xnc6vdl7ojz5vmd9yrzodbbkzf6k5k9&ep=v1_gifs_search&rid=200w.webp&ct=g" alt="" width="90%" height="80%">
+    </div> 
+</div>
+    

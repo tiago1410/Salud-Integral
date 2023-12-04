@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light text">
+    <!-- Sección izquierda con botones -->
+    <div class="col-md-6 d-flex flex-column align-items-center text-center">
+      <form>
+        <button class="btn btn-primary my-2 my-sm-0 m-2" type="submit" (click)="showData()">Perfil</button>
+        <button class="btn btn-secondary my-2 my-sm-0 m-2" type="submit" (click)="logOut()">Cerrar Sesión</button>
+      </form>
+    </div>
+  
+    <!-- Sección derecha con datos del perfil (condicional) -->
+    <div *ngIf="datos" class="col-md-6 d-flex flex-column align-items-center text-center">
+      <div class="row">
+        <!-- Imagen de perfil arriba -->
+        <img class="perfil-img" src="{{fPerfil}}" alt="Foto de perfil">
+      </div>
+      <div class="row">
+        <!-- Nombre debajo y centrado -->
+        <h4 class="rounded rounded-5 bg-secondary my-2 my-sm-0 m-2 p-1 text-white ">{{nombre}}</h4>
+      </div>
+    </div>
+  </nav>
+  
+    

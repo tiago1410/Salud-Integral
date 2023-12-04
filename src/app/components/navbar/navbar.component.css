@@ -1,0 +1,14 @@
+nav{
+    background: #43C6AC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #191654, #43C6AC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #191654, #43C6AC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.perfil-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid aqua;
+    object-fit: cover;
+    margin: 3px;
+}

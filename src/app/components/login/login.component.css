@@ -1,0 +1,32 @@
+.card{
+    background-image: url('//i.giphy.com/media/vJW5JTrDnNSSamemiA/giphy.webp');
+    background-size: cover;
+    padding: 20%; /* ajusta el relleno según tus necesidades */
+    border: 2px solid #06060c; /* ajusta el borde según tus necesidades */
+    border-radius: 30px; /* ajusta el radio de las esquinas según tus necesidades */
+    height: 750px;
+}
+
+.text{
+    color: black;
+    font-size: 20px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Young Serif', serif;
+}
+
+.title{
+    color: black;
+    font-size: 30px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Young Serif', serif;
+}
+
+section {
+    background: #1c92d2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f2fcfe, #1c92d2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
